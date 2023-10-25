@@ -1,19 +1,26 @@
-name: My GitHub Actions Workflow
+name: CI
 
 on:
   push:
     branches:
-      - main
+      - main  # Endre til navnet på hovedgrenen din
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Run My Tests
-        run: |
-          echo "Running tests..."
-          # Add your test commands here
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Endre til ønsket Python-versjon
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Endre til riktig filnavn hvis nødvendig
+
+    - name: Run Python Tests
+      run: python -m unittest discover
+
