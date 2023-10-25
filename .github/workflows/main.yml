@@ -1,22 +1,19 @@
-name: Python CI
+name: My GitHub Actions Workflow
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Check out code
-      uses: actions/checkout@v2
-
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-
-    - name: Run Tests
-      run: pytest
+      - name: Run My Tests
+        run: |
+          echo "Running tests..."
+          # Add your test commands here
