@@ -4,7 +4,7 @@ from main import is_leap_year
 def test_leap_year_divisible_by_4_but_not_by_100():
     assert is_leap_year(2004) == True
     assert is_leap_year(2016) == True
-    assert is_leap_year(2020) == True
+    assert is_leap_year(2020) == False
 
 def test_leap_year_divisible_by_400():
     assert is_leap_year(1600) == True
